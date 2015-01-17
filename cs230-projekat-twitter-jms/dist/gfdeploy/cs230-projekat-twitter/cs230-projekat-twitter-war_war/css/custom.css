@@ -1,0 +1,181 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 31, 2014, 4:23:20 PM
+    Author     : Milan
+*/
+
+body {
+    background: url("../imgs/galaxy.jpg");
+    font-family: Trebuchet MS;
+}
+
+/*
+Content index stranice
+*/
+.main-content {
+    color: white;
+    margin-top: 50px;
+}
+
+/* main je jedan od tri diva */
+.main img {
+    margin: 0 auto;
+    width: 180px; height: 180px;
+    text-align:center;    
+    -webkit-border-radius: 50%/50%;  
+    -moz-border-radius: 50%/50%;  
+    border-radius: 50%/50%;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    cursor: pointer;
+}
+
+.main img:hover {
+    width:200px;
+    height: 200px;
+}
+
+.main a {
+    margin-top: 15px;
+}
+
+/* content za register stranciu */
+.signup-content {
+    color: white;
+    font-size: 14px;
+}
+.signup-content form {
+    margin: 0px 10px 0px 0px;
+    float: right;
+    text-align: center;
+}
+
+.signup-content form input {
+    padding-left: 10px;
+    color: black;
+}
+
+.signup-content form .title {
+    margin: 2px 5px 0;
+}
+
+.signup-content form .output{
+    font-size: 16px;
+    float: right;
+    width: 350px;
+    margin-left: 20px;
+}
+
+/* input types register */
+input {
+    float: left;
+    height: 40px; width: 350px;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 0px 3px 0px;
+    border: 1px solid #DDDDDD;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    border-radius: 4px 4px 4px 4px;
+    font-size: 15px;
+}
+
+/* linkovi u glavnom meniju */
+.navbar li a {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+/* deo dashboarda u kome se pisu postovi ali ima i pregled u njih */
+.my_messages {
+    color: white;
+}
+
+.my_messages form {
+    margin: 0 auto;
+}
+
+/* deo dashboarda gde korisnik pise post */
+.my_messages textarea {
+    opacity:0.8;
+    width: 550px;
+    height: 92px;
+    float: left;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 0px 3px 0px;
+    border: 1px solid #DDDDDD;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    border-radius: 4px 4px 4px 4px;
+    font-size: 15px;
+    color: black;
+}
+
+
+/* submit button (SENT) */
+.my_messages input[type=submit] {
+    float: right;
+    width: auto;
+    padding: 0px 10px 0px 10px;
+    color: black;
+}
+
+/* data table svih poruka koje je korisnik poslao */
+.my_messages .data_table {
+    margin-left: -3px;
+    color: white;
+    padding: 5px 10px 5px 0px;
+    box-sizing: border-box;
+    width: 600px;
+    height: 515px;
+}
+
+/* News feed */
+.my_messages .data_table .message_box {
+    opacity: 0.8;
+    background-color: white;
+    color: black;
+    margin: 5px 5px 5px 5px;
+    border-radius: 3px 3px 3px 3px;
+    padding: 7px 7px 7px 7px;
+    width: 550px;
+    height: auto;
+}
+
+.user_info {
+    opacity: 0.9;
+    height: 90px;
+    margin-top: 60px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    border-radius: 4px 4px 4px 4px;
+}
+
+.user_info b {
+    cursor: pointer;
+}
+
+.table {
+    background-color: red;
+    padding-left: 15px;
+}
+
+/* u dashboardu lista sa desne strane koja prikazuje imena korisnika */
+.subscribe_to {
+    margin: 0px 15px 0px 15px;
+}

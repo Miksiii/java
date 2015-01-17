@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:commandButton value="receiveMessage" action="#{receiver.getMessage()}" />
+        </h:form>
+        
+        <div class="data_table">
+                        <h:dataTable value="#{receiver.getQueueMessages()}" var="queue" >
+                            <h:column>
+                                <div class="message_box" >
+                                    <a href="#"><b>@#{queue.username}</b></a><br/>
+                                    <h:outputLabel value="#{queue.message}"></h:outputLabel><br/>
+                                    Posted on <small class="posted_at">#{queue.date}</small> 
+                                </div>
+                            </h:column>
+                        </h:dataTable>
+                    </div>
+        
+        <b>Subscribers list:</b>
+        <h:dataTable value="#{receiver.subscribersList()}" var="each">
+            <h:column>
+                #{each.userName}
+            </h:column>
+        </h:dataTable>
+    </h:body>
+</html>
+

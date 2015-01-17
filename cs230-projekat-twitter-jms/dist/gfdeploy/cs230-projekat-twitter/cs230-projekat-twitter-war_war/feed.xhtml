@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Twitter | Feed</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/custom.css" rel="stylesheet" />
+        <script type="text/javascript">
+         //window.setTimeout(function(){ document.location.reload(true); }, 10000);
+        </script>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </h:head>
+    <h:body>
+        <!-- provera permisija -->
+        <f:metadata>
+            <f:event type="preRenderView" listener="#{sesija.permission()}"/>
+        </f:metadata>
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="container">
+                <a href="index.xhtml" class="navbar-brand">#Twitter</a>
+                <!-- Toggle button -->
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+                <!-- when collapse, on mobile showed -->
+                <div class="collapse navbar-collapse navHeaderCollapse">
+                    
+                    <!-- links on desktop -->
+                    <div class="nav navbar-nav navbar-right">
+                        <li><a href="dashboard.xhtml">Dashboard</a></li>
+                        <li class="active"><a href="feed.xhtml">Feed</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">#{sesija.currentUser.userName} <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <center>
+                                    <h:form>
+                                        <h:commandLink value="Sign Out" 
+                                                       action="#{sesija.destroy()}"></h:commandLink>
+                                    </h:form> 
+                                    </center>
+                                </li>
+                            </ul>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>  
+
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 my_messages" style="margin-top: -5px">  
+                    <h3>Post feed</h3>
+                    
+                    <div class="data_table">
+                        <h:dataTable value="#{sesija.postsList}" var="message" >
+                            <h:column>
+                                <div class="message_box" >
+                                    <a href="#"><b>@#{message.userName}</b></a><br/>
+                                    <h:outputLabel value="#{message.postMessage}"></h:outputLabel><br/>
+                                    Posted on <small class="posted_at">#{message.postDate}</small> 
+                                    Post id: <small class="posted_at">#{message.postId}</small>
+                                </div>
+                            </h:column>
+                        </h:dataTable>
+                    </div>
+                </div>
+                <div class="col-md-6 user_info">
+                    <div class="panel panel-primary">
+                    <div class="panel-body" style="background-color: #28a4c9; color: white;">
+                      Your account information
+                    </div>
+                        <div class="panel-footer">
+                            <b>##{sesija.currentUser.userId}</b> |
+                            <b>#{sesija.currentUser.userName} </b> |
+                            <b>#{sesija.currentUser.userEmail} </b> |
+                            <b>#{sesija.currentUser.userPassword}</b>
+                        </div>
+                  </div>
+                    
+                  <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">People you follow</div>
+<!--                    <div class="panel-body">
+                        <p>
+                        </p>
+                    </div>-->
+
+                    <!-- Table -->
+                    <table class="table">
+                        <h:dataTable value="#{sesija.subscribedList}" var="user">
+                            <h:column>
+                                <div class="subscribe_to">
+                                    <h:form>
+                                        <b>#{user.followUserName}</b>     
+                                        (
+                                        <h:commandLink value="unsubscribe" 
+                                                       action="#{sesija.unsubscribe(user.followUser)}"
+                                                           >
+                                        </h:commandLink>
+                                        )
+                                     </h:form>
+                                </div>
+                            </h:column>
+                        </h:dataTable>
+                    </table>
+                  </div>
+                    
+                  <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">People that follows you</div>
+<!--                    <div class="panel-body">
+                        <p>
+                        </p>
+                    </div>-->
+
+                    <!-- Table -->
+                    <table class="table">
+                        <div class="subscribe_to">
+                            <h1 style="margin-top: 4px;">#{sesija.subscribersList}</h1>  
+                        </div>
+                    </table>
+                  </div>
+
+                  <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Online users</div>
+<!--                    <div class="panel-body">
+                      <p></p>
+                    </div>-->
+
+                    <!-- Table -->
+                    <table class="table">
+                        <h:dataTable value="#{sesija.usersList}" var="user">
+                            <h:column>
+                                <div class="subscribe_to">
+                                     <h:form>
+                                        <b>#{user.userName}</b>     
+                                        (
+                                        <h:commandLink value="subscribe" 
+                                                       action="#{sesija.subscribe(user.userId, user.userName)}"
+                                                           >
+                                        </h:commandLink>
+                                        )
+                                     </h:form>
+                                </div>
+                            </h:column>
+                        </h:dataTable>
+                    </table>
+                  </div>
+                </div>
+            </div>
+            <hr/>
+        </div>
+                 
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    </script>
+    </h:body>
+</html>
+
+ 
