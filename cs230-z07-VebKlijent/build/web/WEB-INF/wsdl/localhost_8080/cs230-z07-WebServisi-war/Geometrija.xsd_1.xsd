@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://webservices.fit.rs/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://webservices.fit.rs/">
+
+<xs:element name="getKrugObim" type="tns:getKrugObim"/>
+
+<xs:element name="getKrugObimResponse" type="tns:getKrugObimResponse"/>
+
+<xs:element name="getKrugPovrsina" type="tns:getKrugPovrsina"/>
+
+<xs:element name="getKrugPovrsinaResponse" type="tns:getKrugPovrsinaResponse"/>
+
+<xs:element name="getKvadratObim" type="tns:getKvadratObim"/>
+
+<xs:element name="getKvadratObimResponse" type="tns:getKvadratObimResponse"/>
+
+<xs:element name="getKvadratPovrsina" type="tns:getKvadratPovrsina"/>
+
+<xs:element name="getKvadratPovrsinaResponse" type="tns:getKvadratPovrsinaResponse"/>
+
+<xs:element name="getPravouganikPovrsina" type="tns:getPravouganikPovrsina"/>
+
+<xs:element name="getPravouganikPovrsinaResponse" type="tns:getPravouganikPovrsinaResponse"/>
+
+<xs:element name="getPravougaonikObim" type="tns:getPravougaonikObim"/>
+
+<xs:element name="getPravougaonikObimResponse" type="tns:getPravougaonikObimResponse"/>
+
+<xs:complexType name="getKvadratObim">
+<xs:sequence>
+<xs:element name="a" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getKvadratObimResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getKrugObim">
+<xs:sequence>
+<xs:element name="r" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getKrugObimResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getKrugPovrsina">
+<xs:sequence>
+<xs:element name="r" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getKrugPovrsinaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPravougaonikObim">
+<xs:sequence>
+<xs:element name="a" type="xs:int"/>
+<xs:element name="b" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPravougaonikObimResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPravouganikPovrsina">
+<xs:sequence>
+<xs:element name="a" type="xs:int"/>
+<xs:element name="b" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPravouganikPovrsinaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getKvadratPovrsina">
+<xs:sequence>
+<xs:element name="a" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getKvadratPovrsinaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
