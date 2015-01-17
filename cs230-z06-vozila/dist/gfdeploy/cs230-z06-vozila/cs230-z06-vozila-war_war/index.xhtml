@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Vozila | pocetna strana</title>
+    </h:head>
+    <h:body>
+        <center>
+            <a href="sva-vozila.xhtml">Vidi sva vozila</a>
+            <a href="unos-vozila.xhtml">Unesi novo vozilo</a>
+            <hr></hr>
+            <h3>Pretrazi po godistu</h3>
+            
+            <h:form>
+            <h:selectOneMenu id="pretragaGodiste" value="#{voziloBean.godiste}">
+                <f:selectItems value="#{voziloBean.selectGodiste()}" />
+            </h:selectOneMenu>
+                
+            <h:commandButton value="Pretrazi" action="#{voziloBean.pretragaGodisteRequest()}" />
+            <h:dataTable value="#{voziloBean.getByGodiste()}" var="each">
+                <h:column>
+                    #{each.voziloId}
+                </h:column>
+                <h:column>
+                    #{each.voziloMarka}
+                </h:column>
+                <h:column>
+                    #{each.voziloModel}
+                </h:column>
+                <h:column>
+                    #{each.voziloGodiste}
+                </h:column>
+                <h:column>
+                    #{each.voziloGorivo}
+                </h:column>
+            </h:dataTable>
+            </h:form>
+            
+            <hr></hr>
+            
+            <h3>Pretraga po modelu</h3>
+            
+            <h:form>
+                <h:outputLabel value="Unesite model" /><br/>
+                <h:outputLabel value="(Napr. audi model, bmw model..)" /><br/>
+                <h:inputText id="pretragaModel"
+                             value="#{voziloBean.model}"
+                             required="true"
+                             requiredMessage="Unesite model za pretragu"
+                             />
+                <h:commandButton value="Pretrazi" action="#{voziloBean.pretragaModelRequest()}" />
+            </h:form>
+            <h:dataTable value="#{voziloBean.getByModel()}" var="each">
+                <h:column>
+                    #{each.voziloId}
+                </h:column>
+                <h:column>
+                    #{each.voziloMarka}
+                </h:column>
+                <h:column>
+                    #{each.voziloModel}
+                </h:column>
+                <h:column>
+                    #{each.voziloGodiste}
+                </h:column>
+                <h:column>
+                    #{each.voziloGorivo}
+                </h:column>
+            </h:dataTable>
+        </center> 
+    </h:body>
+</html>
+
